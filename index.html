@@ -40,39 +40,14 @@
 	top:1px;
 }
 </style> 
-<?php
- 
-$people_json = file_get_contents('people.json');
- 
-$decoded_json = json_decode($people_json, true);
-?>
 <table class="tg">
 <tbody>
 
-<?php 
-foreach($decoded_json as $key => $value) {
-    $name = $decoded_json[$key]["name"];
-    $count = $decoded_json[$key]["count"];
-    $desc = $decoded_json[$key]["desc"];
-    echo '<tr><td class="tg-0pky"><input class="checkbox" type="checkbox"><input class="checkbox" type="checkbox"><input class="checkbox" type="checkbox"><input  class="checkbox" type="checkbox"></td>';
-    echo '<td class="tg-v8dz">';
-    echo $name;
-    echo '</td><td class="tg-lbo9">';
-    echo $count;
-    echo '</td><td class="tg-lboi">';
-    echo $desc;
-    echo '</td></tr>';
-}
-?>
 
-<tr><form name="feedback" method="POST" action="add.php">
-<td align="center" class="tg-0pky"><input type="submit" class="myButton" name="save" value="Добавить"></td>
-<td class="tg-v8dz"> <label><input class="text" type="text" name="name"></label>
-</td>
-<td class="tg-lbo9"><label><input class="text_count" type="text" name="count"></label>
-</td>
-<td class="tg-lboi"><label><input class="text" type="text" name="desc"></label>
-</td>
-</tr>
+<tr><td class="tg-0pky"><input class="checkbox" type="checkbox"><input class="checkbox" type="checkbox"><input class="checkbox" type="checkbox"><input  class="checkbox" type="checkbox"></td>';
+<td class="tg-v8dz">';
+</td><td class="tg-lbo9">';
+</td><td class="tg-lboi">';
+</td></tr>';
 </tbody>
 </table>
