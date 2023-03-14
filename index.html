@@ -1,1 +1,78 @@
-<h1>Hello world</h1>
+
+
+<head><title>Тренировки</title>
+<meta charset="UTF-8">
+</head>
+
+<style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;margin:0px auto;}
+.tg td{border-style:solid;border-width:0px;font-family:Arial, sans-serif;font-size:14px;overflow:hidden;
+  padding:17px 10px;word-break:normal;}
+.tg .tg-lboi{border-color:inherit;text-align:left;vertical-align:middle}
+.tg .tg-lbo9{border-color:inherit;font-size:24px;text-align:left;vertical-align:middle}
+.tg .tg-v8dz{border-color:inherit;font-size:24px;text-align:left;vertical-align:middle}
+.checkbox{width: 40px;height: 40px;}
+.text{width: 200px;height: 40px;}
+.text_count{width: 40px;height: 40px;}
+.myButton {
+	box-shadow:inset 0px 1px 0px 0px #ffffff;
+	background:linear-gradient(to bottom, #ededed 5%, #dfdfdf 100%);
+	background-color:#ededed;
+	border-radius:6px;
+	border:1px solid #dcdcdc;
+	display:inline-block;
+	cursor:pointer;
+	color:#777777;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #ffffff;
+	height:40px; width:170px
+}
+.myButton:hover {
+	background:linear-gradient(to bottom, #dfdfdf 5%, #ededed 100%);
+	background-color:#dfdfdf;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
+}
+</style> 
+<?php
+ 
+$people_json = file_get_contents('people.json');
+ 
+$decoded_json = json_decode($people_json, true);
+?>
+<table class="tg">
+<tbody>
+
+<?php 
+foreach($decoded_json as $key => $value) {
+    $name = $decoded_json[$key]["name"];
+    $count = $decoded_json[$key]["count"];
+    $desc = $decoded_json[$key]["desc"];
+    echo '<tr><td class="tg-0pky"><input class="checkbox" type="checkbox"><input class="checkbox" type="checkbox"><input class="checkbox" type="checkbox"><input  class="checkbox" type="checkbox"></td>';
+    echo '<td class="tg-v8dz">';
+    echo $name;
+    echo '</td><td class="tg-lbo9">';
+    echo $count;
+    echo '</td><td class="tg-lboi">';
+    echo $desc;
+    echo '</td></tr>';
+}
+?>
+
+<tr><form name="feedback" method="POST" action="add.php">
+<td align="center" class="tg-0pky"><input type="submit" class="myButton" name="save" value="Добавить"></td>
+<td class="tg-v8dz"> <label><input class="text" type="text" name="name"></label>
+</td>
+<td class="tg-lbo9"><label><input class="text_count" type="text" name="count"></label>
+</td>
+<td class="tg-lboi"><label><input class="text" type="text" name="desc"></label>
+</td>
+</tr>
+</tbody>
+</table>
