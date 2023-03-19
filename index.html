@@ -2,6 +2,14 @@
 
 <head><title>Тренировки</title>
 <meta charset="UTF-8">
+
+<script>
+	
+	document.querySelectorAll(".check").forEach(el => {
+	  el.onchange = () => localStorage.setItem(el.id, el.checked);
+	  el.checked = localStorage.getItem(el.id) === "true";
+	})
+		</script>
 </head>
 
 <style type="text/css">
@@ -106,11 +114,3 @@
 	</tr>
 	</tbody>
 </table>
-
-<script>
-	
-document.querySelectorAll(".check").forEach(el => {
-  el.onchange = () => localStorage.setItem(el.id, el.checked);
-  el.checked = localStorage.getItem(el.id) === "true";
-})
-	</script>
