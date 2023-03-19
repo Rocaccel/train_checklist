@@ -1,109 +1,176 @@
-
-
 <head><title>Тренировки</title>
-<meta charset="UTF-8">
-
-</head>
-
-<style type="text/css">
-.tg  {border-collapse:collapse;border-spacing:0;margin:0px auto;}
-.tg td{border-style:solid;border-width:0px;font-family:Arial, sans-serif;font-size:14px;overflow:hidden;
-  padding:17px 10px;word-break:normal;}
-.tg .tg-lboi{border-color:inherit;text-align:left;vertical-align:middle}
-.tg .tg-lbo9{border-color:inherit;font-size:24px;text-align:left;vertical-align:middle}
-.tg .tg-v8dz{border-color:inherit;font-size:24px;text-align:left;vertical-align:middle}
-.checkbox{width: 40px;height: 40px;}
-.text{width: 200px;height: 40px;}
-.text_count{width: 40px;height: 40px;}
-.myButton {
-	box-shadow:inset 0px 1px 0px 0px #ffffff;
-	background:linear-gradient(to bottom, #ededed 5%, #dfdfdf 100%);
-	background-color:#ededed;
-	border-radius:6px;
-	border:1px solid #dcdcdc;
-	display:inline-block;
-	cursor:pointer;
-	color:#777777;
-	font-family:Arial;
-	font-size:15px;
-	font-weight:bold;
-	padding:6px 24px;
-	text-decoration:none;
-	text-shadow:0px 1px 0px #ffffff;
-	height:40px; width:170px
-}
-.myButton:hover {
-	background:linear-gradient(to bottom, #dfdfdf 5%, #ededed 100%);
-	background-color:#dfdfdf;
-}
-.myButton:active {
-	position:relative;
-	top:1px;
-}
-</style> 
-<table class="tg">
-	<tbody>
-
-
-	<tr>
-		<td class="tg-0pky"><input class="checkbox" type="checkbox"><input class="checkbox" type="checkbox"><input class="checkbox" type="checkbox"><input  class="checkbox" type="checkbox"></td>
-		<td class="tg-v8dz">Приседания</td>
-		<td class="tg-lbo9">20</td>
-		<td class="tg-lboi"></td>
-	</tr>
-	<tr>
-		<td class="tg-0pky"><input class="checkbox" type="checkbox"><input class="checkbox" type="checkbox"><input class="checkbox" type="checkbox"><input  class="checkbox" type="checkbox"></td>
-		<td class="tg-v8dz">Вставать на носочки</td>
-		<td class="tg-lbo9">20</td>
-		<td class="tg-lboi"></td>
-	</tr>
-	<tr>
-		<td class="tg-0pky"><input class="checkbox" type="checkbox"><input class="checkbox" type="checkbox"><input class="checkbox" type="checkbox"><input  class="checkbox" type="checkbox"></td>
-		<td class="tg-v8dz">Отжимания</td>
-		<td class="tg-lbo9">12</td>
-		<td class="tg-lboi"></td>
-	</tr>
-	<tr>
-		<td class="tg-0pky"><input class="checkbox" type="checkbox"><input class="checkbox" type="checkbox"><input class="checkbox" type="checkbox"><input  class="checkbox" type="checkbox"></td>
-		<td class="tg-v8dz">Плечи</td>
-		<td class="tg-lbo9">12</td>
-		<td class="tg-lboi">поднимаем стоя руки с грузом в разные стороны. в каждой руке по 6 кг</td>
-	</tr>
-	<tr>
-		<td class="tg-0pky"><input class="checkbox" type="checkbox"><input class="checkbox" type="checkbox"><input class="checkbox" type="checkbox"><input  class="checkbox" type="checkbox"></td>
-		<td class="tg-v8dz">Поясница</td>
-		<td class="tg-lbo9">15</td>
-		<td class="tg-lboi">лежа на животе поднимаем верхнюю часть тела</td>
-	</tr>
-	<tr>
-		<td class="tg-0pky"><input class="checkbox" type="checkbox"><input class="checkbox" type="checkbox"><input class="checkbox" type="checkbox"><input  class="checkbox" type="checkbox"></td>
-		<td class="tg-v8dz">Пресс</td>
-		<td class="tg-lbo9">20</td>
-		<td class="tg-lboi">поднимаем ноги</td>
-	</tr>
-	<tr>
-		<td class="tg-0pky"><input class="checkbox" type="checkbox"><input class="checkbox" type="checkbox"><input class="checkbox" type="checkbox"><input  class="checkbox" type="checkbox"></td>
-		<td class="tg-v8dz">Растяжка</td>
-		<td class="tg-lbo9">20</td>
-		<td class="tg-lboi">наклоны вперед стоя с задержкой внизу</td>
-	</tr>
-	<tr>
-		<td class="tg-0pky"><input class="checkbox" type="checkbox"><input class="checkbox" type="checkbox"><input class="checkbox" type="checkbox"><input  class="checkbox" type="checkbox"></td>
-		<td class="tg-v8dz">Подтягивание на бицепс	</td>
-		<td class="tg-lbo9">10</td>
-		<td class="tg-lboi"></td>
-	</tr>
-	<tr>
-		<td class="tg-0pky"><input class="checkbox" type="checkbox"><input class="checkbox" type="checkbox"><input class="checkbox" type="checkbox"><input  class="checkbox" type="checkbox"></td>
-		<td class="tg-v8dz">Подтягивание на спину</td>
-		<td class="tg-lbo9">10</td>
-		<td class="tg-lboi"></td>
-	</tr>
-	<tr>
-		<td class="tg-0pky"><input class="checkbox" type="checkbox"><input class="checkbox" type="checkbox"><input class="checkbox" type="checkbox"><input  class="checkbox" type="checkbox"></td>
-		<td class="tg-v8dz">Шея</td>
-		<td class="tg-lbo9">20</td>
-		<td class="tg-lboi">Лежа на спине и на животе тренировать шею</td>
-	</tr>
-	</tbody>
-</table>
+	<meta charset="UTF-8">
+	<script>
+	function save_checkbox(name)
+	{
+		localStorage[name] = document.getElementById(name).checked ? 1 : 0
+	}
+	function load_checkbox()
+	{
+		var table = document.getElementById('checktable')
+		var input = table.getElementsByTagName('input')
+	 
+		for(var i = 0; i < input.length; i++)
+		{
+			var checkbox = input[i]
+			checkbox.checked = parseInt(localStorage[checkbox.id], 10)
+		}
+	}
+	
+	</script>
+	<style type="text/css">
+		.tg  {border-collapse:collapse;border-spacing:0;margin:0px auto;}
+		.tg td{border-style:solid;border-width:0px;font-family:Arial, sans-serif;font-size:14px;overflow:hidden;
+		  padding:17px 10px;word-break:normal;}
+		.tg .tg-lboi{border-color:inherit;text-align:left;vertical-align:middle}
+		.tg .tg-lbo9{border-color:inherit;font-size:24px;text-align:left;vertical-align:middle}
+		.tg .tg-v8dz{border-color:inherit;font-size:24px;text-align:left;vertical-align:middle}
+		.checkbox{width: 40px;height: 40px;}
+		.text{width: 200px;height: 40px;}
+		.text_count{width: 40px;height: 40px;}
+		.myButton {
+			box-shadow:inset 0px 1px 0px 0px #ffffff;
+			background:linear-gradient(to bottom, #ededed 5%, #dfdfdf 100%);
+			background-color:#ededed;
+			border-radius:6px;
+			border:1px solid #dcdcdc;
+			display:inline-block;
+			cursor:pointer;
+			color:#777777;
+			font-family:Arial;
+			font-size:15px;
+			font-weight:bold;
+			padding:6px 24px;
+			text-decoration:none;
+			text-shadow:0px 1px 0px #ffffff;
+			height:40px; width:170px
+		}
+		.myButton:hover {
+			background:linear-gradient(to bottom, #dfdfdf 5%, #ededed 100%);
+			background-color:#dfdfdf;
+		}
+		.myButton:active {
+			position:relative;
+			top:1px;
+		}
+		</style>
+	
+	</head>
+	
+	<body onload="load_checkbox()">
+	<table class="tg" id="checktable">
+		<tbody>
+		<tr>
+			<td class="tg-0pky">
+				<input class="checkbox" type="checkbox" id="check1_1" onclick="save_checkbox('check1_1')">
+				<input class="checkbox" type="checkbox" id="check1_2" onclick="save_checkbox('check1_2')">
+				<input class="checkbox" type="checkbox" id="check1_3" onclick="save_checkbox('check1_3')">
+				<input class="checkbox" type="checkbox" id="check1_4" onclick="save_checkbox('check1_4')">
+			</td>
+			<td class="tg-v8dz">Приседания</td>
+			<td class="tg-lbo9">20</td>
+			<td class="tg-lboi"></td>
+		</tr>
+		<tr>
+			<td class="tg-0pky">
+				<input class="checkbox" type="checkbox" id="check2_1" onclick="save_checkbox('check2_1')">
+				<input class="checkbox" type="checkbox" id="check2_2" onclick="save_checkbox('check2_2')">
+				<input class="checkbox" type="checkbox" id="check2_3" onclick="save_checkbox('check2_3')">
+				<input class="checkbox" type="checkbox" id="check2_4" onclick="save_checkbox('check2_4')">
+			</td>
+			<td class="tg-v8dz">Вставать на носочки</td>
+			<td class="tg-lbo9">20</td>
+			<td class="tg-lboi"></td>
+		</tr>
+		<tr>
+			<td class="tg-0pky">
+				<input class="checkbox" type="checkbox" id="check3_1" onclick="save_checkbox('check3_1')">
+				<input class="checkbox" type="checkbox" id="check3_2" onclick="save_checkbox('check3_2')">
+				<input class="checkbox" type="checkbox" id="check3_3" onclick="save_checkbox('check3_3')">
+				<input class="checkbox" type="checkbox" id="check3_4" onclick="save_checkbox('check3_4')">
+			</td>
+			<td class="tg-v8dz">Отжимания</td>
+			<td class="tg-lbo9">12</td>
+			<td class="tg-lboi"></td>
+		</tr>
+		<tr>
+			<td class="tg-0pky">
+				<input class="checkbox" type="checkbox" id="check4_1" onclick="save_checkbox('check4_1')">
+				<input class="checkbox" type="checkbox" id="check4_2" onclick="save_checkbox('check4_2')">
+				<input class="checkbox" type="checkbox" id="check4_3" onclick="save_checkbox('check4_3')">
+				<input class="checkbox" type="checkbox" id="check4_4" onclick="save_checkbox('check4_4')">
+			</td>
+			<td class="tg-v8dz">Плечи</td>
+			<td class="tg-lbo9">12</td>
+			<td class="tg-lboi">поднимаем стоя руки с грузом в разные стороны. в каждой руке по 6 кг</td>
+		</tr>
+		<tr>
+			<td class="tg-0pky">
+				<input class="checkbox" type="checkbox" id="check5_1" onclick="save_checkbox('check5_1')">
+				<input class="checkbox" type="checkbox" id="check5_2" onclick="save_checkbox('check5_2')">
+				<input class="checkbox" type="checkbox" id="check5_3" onclick="save_checkbox('check5_3')">
+				<input class="checkbox" type="checkbox" id="check5_4" onclick="save_checkbox('check5_4')">
+			</td>
+			<td class="tg-v8dz">Поясница</td>
+			<td class="tg-lbo9">15</td>
+			<td class="tg-lboi">лежа на животе поднимаем верхнюю часть тела</td>
+		</tr>
+		<tr>
+			<td class="tg-0pky">
+				<input class="checkbox" type="checkbox" id="check6_1" onclick="save_checkbox('check6_1')">
+				<input class="checkbox" type="checkbox" id="check6_2" onclick="save_checkbox('check6_2')">
+				<input class="checkbox" type="checkbox" id="check6_3" onclick="save_checkbox('check6_3')">
+				<input class="checkbox" type="checkbox" id="check6_4" onclick="save_checkbox('check6_4')">
+			</td>
+			<td class="tg-v8dz">Пресс</td>
+			<td class="tg-lbo9">20</td>
+			<td class="tg-lboi">поднимаем ноги</td>
+		</tr>
+		<tr>
+			<td class="tg-0pky">
+				<input class="checkbox" type="checkbox" id="check7_1" onclick="save_checkbox('check7_1')">
+				<input class="checkbox" type="checkbox" id="check7_2" onclick="save_checkbox('check7_2')">
+				<input class="checkbox" type="checkbox" id="check7_3" onclick="save_checkbox('check7_3')">
+				<input class="checkbox" type="checkbox" id="check7_4" onclick="save_checkbox('check7_4')">
+			</td>
+			<td class="tg-v8dz">Растяжка</td>
+			<td class="tg-lbo9">20</td>
+			<td class="tg-lboi">наклоны вперед стоя с задержкой внизу</td>
+		</tr>
+		<tr>
+			<td class="tg-0pky">
+				<input class="checkbox" type="checkbox" id="check8_1" onclick="save_checkbox('check8_1')">
+				<input class="checkbox" type="checkbox" id="check8_2" onclick="save_checkbox('check8_2')">
+				<input class="checkbox" type="checkbox" id="check8_3" onclick="save_checkbox('check8_3')">
+				<input class="checkbox" type="checkbox" id="check8_4" onclick="save_checkbox('check8_4')">
+			</td>
+			<td class="tg-v8dz">Подтягивание на бицепс	</td>
+			<td class="tg-lbo9">10</td>
+			<td class="tg-lboi"></td>
+		</tr>
+		<tr>
+			<td class="tg-0pky">
+				<input class="checkbox" type="checkbox" id="check9_1" onclick="save_checkbox('check9_1')">
+				<input class="checkbox" type="checkbox" id="check9_2" onclick="save_checkbox('check9_2')">
+				<input class="checkbox" type="checkbox" id="check9_3" onclick="save_checkbox('check9_3')">
+				<input class="checkbox" type="checkbox" id="check9_4" onclick="save_checkbox('check9_4')">
+			</td>
+			<td class="tg-v8dz">Подтягивание на спину</td>
+			<td class="tg-lbo9">10</td>
+			<td class="tg-lboi"></td>
+		</tr>
+		<tr>
+			<td class="tg-0pky">
+				<input class="checkbox" type="checkbox" id="check10_1" onclick="save_checkbox('check10_1')">
+				<input class="checkbox" type="checkbox" id="check10_2" onclick="save_checkbox('check10_2')">
+				<input class="checkbox" type="checkbox" id="check10_3" onclick="save_checkbox('check10_3')">
+				<input class="checkbox" type="checkbox" id="check10_4" onclick="save_checkbox('check10_4')">
+			</td>
+			<td class="tg-v8dz">Шея</td>
+			<td class="tg-lbo9">20</td>
+			<td class="tg-lboi">Лежа на спине и на животе тренировать шею</td>
+		</tr>
+		</tbody>
+	</table>
+	<form><button class="myButton" type="submit" onclick="localStorage.clear()">Очистить</button></form>
+	</body>
