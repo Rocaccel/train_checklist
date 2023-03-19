@@ -1,0 +1,29 @@
+<script>
+function save_checkbox(name)
+{
+    localStorage[name] = document.getElementById(name).checked ? 1 : 0
+}
+function load_checkbox()
+{
+    var table = document.getElementById('resources')
+    var input = table.getElementsByTagName('input')
+ 
+    for(var i = 0; i < input.length; i++)
+    {
+        var checkbox = input[i]
+        checkbox.checked = parseInt(localStorage[checkbox.id], 10)
+    }
+}
+
+</script>
+
+<table id="resources" style="width:400px; height:380px;" border="1" cellspacing="0" cellpadding="0">
+    <tr style="height:24px;" valign="center">
+        <td align="center"><input type="checkbox" id="buy_wood" onclick="save_checkbox('buy_wood')"></td>
+        <td align="center"><input type="checkbox" id="sale_wood" onclick="save_checkbox('sale_wood')"></td>
+    </tr>
+    <tr style="height:24px;" valign="center">
+        <td align="center"><input type="checkbox" id="buy_ore" onclick="save_checkbox('buy_ore')"></td>
+        <td align="center"><input type="checkbox" id="sale_ore" onclick="save_checkbox('sale_ore')"></td>
+    </tr>
+</table>
