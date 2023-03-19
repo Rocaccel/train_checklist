@@ -45,7 +45,7 @@
 
 
 	<tr>
-		<td class="tg-0pky"><input class="checkbox" type="checkbox"><input class="checkbox" type="checkbox"><input class="checkbox" type="checkbox"><input  class="checkbox" type="checkbox"></td>
+		<td class="tg-0pky"><input class="checkbox" type="checkbox" id="checkbox1_1"><input class="checkbox" type="checkbox" id="checkbox1_2><input class="checkbox" type="checkbox" id="checkbox1_3><input  class="checkbox" type="checkbox" id="checkbox1_4></td>
 		<td class="tg-v8dz">Приседания</td>
 		<td class="tg-lbo9">20</td>
 		<td class="tg-lboi"></td>
@@ -106,3 +106,11 @@
 	</tr>
 	</tbody>
 </table>
+
+<script>
+	
+document.querySelectorAll(".check").forEach(el => {
+  el.onchange = () => localStorage.setItem(el.id, el.checked);
+  el.checked = localStorage.getItem(el.id) === "true";
+})
+	</script>
